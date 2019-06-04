@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.browserstack.local.Local;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 
 public class BrowserStackTestNGTest {
     public WebDriver driver;
-    private Local l;
 
     @BeforeMethod(alwaysRun = true)
     @org.testng.annotations.Parameters(value = { "config", "environment" })
@@ -56,14 +53,6 @@ public class BrowserStackTestNGTest {
             accessKey = (String) config.get("key");
         }
 
-        if (capabilities.getCapability("browserstack.local") != null
-                && capabilities.getCapability("browserstack.local") == "true") {
-            l = new Local();
-            Map<String, String> options = new HashMap<String, String>();
-            options.put("key", accessKey);
-            l.start(options);
-        }
-
         driver = new RemoteWebDriver(
                 new URL("http://" + username + ":" + accessKey + "@" + config.get("server") + "/wd/hub"), capabilities);
     }
@@ -71,8 +60,5 @@ public class BrowserStackTestNGTest {
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
-        if (l != null) {
-            l.stop();
-        }
     }
 }
