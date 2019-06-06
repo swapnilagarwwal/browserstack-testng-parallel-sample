@@ -11,17 +11,28 @@
 
   "environments": {
     "chrome": {
-      "browser": "chrome"
+      "os": "Windows",
+      "os_version": "10",
+      "browser": "chrome",
+      "browser_version": "72.0"
     },
     "firefox": {
-      "browser": "firefox"
+      "os": "Windows",
+      "os_version": "10",
+      "browser": "firefox",
+      "browser_version": "66.0"
     },
     "safari": {
+      "os": "OS X",
+      "os_version": "Mojave",
       "os": "OS X",
       "browser": "safari"
     },
     "ie": {
-      "browser": "internet explorer"
+      "os": "Windows",
+      "os_version": "8",
+      "browser": "IE",
+      "browser_version": "10.0"
     }
   }
 }
