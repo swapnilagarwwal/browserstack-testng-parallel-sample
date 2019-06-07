@@ -4,8 +4,8 @@
   "key": "BROWSERSTACK_ACCESS_KEY",
 
   "capabilities": {
-    "build": "testng-browserstack",
-    "name": "suite_test",
+    "build": "BrowserStack-[TestNG] Parallel Build",
+    "name": "BrowserStack-[TestNG] Simple Parallel Test",
     "browserstack.debug": true
   },
 
