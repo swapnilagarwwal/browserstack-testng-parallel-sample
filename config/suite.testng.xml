@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Pool" parallel="tests">
-    <test name="PoolTestChrome" parallel="methods" thread-count="10">
+<suite name="Pool" parallel="tests"> <!-- All the test cases inside <test> tag below will run in parallel -->
+    <test name="PoolTestChrome" parallel="methods" thread-count="10"> <!-- All Methods with @Test annotation will execute in parallel -->
         <parameter name="config" value="suite.conf.json"/>
-        <parameter name="environment" value="chrome"/>
+        <parameter name="environment" value="chrome"/> <!-- environment from src/test/resources/conf/suite.conf.json -->
         <classes>
+            <!-- test classes -->
             <class name="com.browserstack.suite.SuiteTest01"/>
             <class name="com.browserstack.suite.SuiteTest02"/>
             <class name="com.browserstack.suite.SuiteTest03"/>
@@ -18,10 +19,11 @@
         </classes>
     </test>
 
-    <test name="PoolTestFirefox"  parallel="tests" thread-count="10">
+    <test name="PoolTestFirefox"  parallel="methods" thread-count="10"> <!-- All Methods with @Test annotation will execute in parallel -->
         <parameter name="config" value="suite.conf.json"/>
-        <parameter name="environment" value="firefox"/>
+        <parameter name="environment" value="firefox"/> <!-- environment from src/test/resources/conf/suite.conf.json -->
         <classes>
+            <!-- test classes -->
             <class name="com.browserstack.suite.SuiteTest01"/>
             <class name="com.browserstack.suite.SuiteTest02"/>
             <class name="com.browserstack.suite.SuiteTest03"/>
