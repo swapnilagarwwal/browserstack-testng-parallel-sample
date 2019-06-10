@@ -12,12 +12,13 @@ public class SuiteTest01 extends BrowserStackTestNGTest {
 
     @Test
     public void test_01() throws Exception {
-        driver.get("https://www.google.com/ncr");
-        WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("BrowserStack Test 01");
-        element.submit();
-        Thread.sleep(5000);
 
-        Assert.assertEquals("BrowserStack Test 01 - Google Search", driver.getTitle());
+    	String searchString = "BrowserStack";
+		System.out.println("Starting to run the test for: " + searchString);
+		driver.get("https://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys(searchString);
+        element.submit();
+        Assert.assertTrue(driver.getTitle().startsWith(searchString));
     }
 }
